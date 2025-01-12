@@ -110,14 +110,19 @@ public class Principal {
 
     private void listarMusicas() {
         List<Artistas> artistasList = repository.findAll();
-        artistasList.forEach(System.out::println);
+        artistasList.forEach(a -> a.getMusicas().forEach(System.out::println));
 
     }
 
     private void buscarMusicasPorArtistas() {
+        System.out.println("Buscas músicas de que artista?");
+        var nome = leitura.nextLine();
+        List<Musicas> musicas = repository.buscaMusicaPorArtista(nome);
+        musicas.forEach(System.out::println);
     }
 
     private void pesquisarDadosDoArtista() {
+        //CONSULTA VIA CHAT GPT
     }
 
 
